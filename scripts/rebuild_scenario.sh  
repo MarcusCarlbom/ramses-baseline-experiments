@@ -1,0 +1,6 @@
+#!/bin/bash
+cd managed-system/rest-client
+gradle clean build
+docker build -t my-scenario .
+docker rm -f my-scenario
+docker run -d --network ramses-sas-net --name my-scenario my-scenario
